@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     const { put } = blobMod
 
     // Store first as pending: protests/sep-8/{type}/pending/{timestamp}-{filename}
-    const ext = file.name?.split('.').pop() || 'bin'
+    const ext = file.name ? file.name.split('.').pop() || 'bin' : 'bin'
     const ts = Date.now()
     const pathname = `protests/sep-8/${type}/pending/${ts}-${Math.random().toString(36).slice(2)}.${ext}`
     
